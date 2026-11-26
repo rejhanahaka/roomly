@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Campus rooms</h1>
+<p class="subtitle">All classrooms, labs and halls in one place.</p>
+
+<div class="grid">
+    {% for room in rooms %}
+    <div class="card">
+        <h2>{{ room.name }}</h2>
+        <p class="muted">{{ room.building }}</p>
+        <div class="tags">
+            <span class="tag">{{ room.room_type|replace('_', ' ') }}</span>
+            <span class="tag">{{ room.capacity }} seats</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
